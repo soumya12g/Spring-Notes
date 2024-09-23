@@ -1,0 +1,46 @@
+Introduction:
+Why SSpringFramework?
+
+There used to be web servlets -> web.XML which contains all the request paths as servlet mappings and the controller class names which extends HTTP servelet.
+This makes the XML file larger and larger as the controller methods grow.
+
+--> Input / Output -----------> Tomcat where application is deployed -------> uses Web.XML to invoke the servelet -> invokes the servelet -----------> Response to Tomcat and out side.
+
+Problems Solved by srpring framework.
+
+-> Removal of web.XML  ---- too big to handle ----> annotations based configuration
+-> IoC -> dependency injection implementation
+        -> servlets use servlet container to create and maintain object lifestyle.
+        ->Spring handles object dependencies based on annotations provided.
+->Unit Testing is simpler due to IoC
+        -> Mocking isn't easy as new object is created in class
+        -> 
+-> Easy to manage REST APIs
+        -> provides organised approach to handle these.
+-> integration with other tool and technology, like bibernate, spring security etc.
+
+
+Springboot over Spring MVC
+-> Dependency Management ----- Version management of dependencies isn't required.
+-> Configuration ----
+            -> No need to seperately add Dispatcher Servlet, AutoConfig, EnableWebMVC, Component Scan. 
+            -> @SprinBootApplication does all these intergally
+-> Embedded Server
+            -> In SpringMVC we need to build WAR file , which isapackaged file containing classes, JSP pages, configuration files and dependencies.
+            -> Then deploye this to servlet container like TOMCAT
+            -> all this is part of spring boot, when we run it does all these and bring the app up.
+
+
+What is springboot:
+
+->Provides Quick way to create a application 
+->Supports, Convenrtion over configuration
+    -> Uses default configs and if developer want to override he can always do that
+-> Helps in running application as quick as possible(Build in Tomcat)
+
+
+SpringBoot's Layered Architechture:
+  ->Contoller Layer
+  ->Service Layer
+  ->Repository
+        -> DTOs, Entity, Utility, Configuration
