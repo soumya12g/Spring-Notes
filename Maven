@@ -1,0 +1,21 @@
+Project Management tool
+Handles verification, package building, installment.
+-> Build generation
+-> Dependency Resolution
+-> Documentation
+-- Uses POM(Project Object Model) to achieve this
+-- When given maven commadn it looks at  pom.xml file of current directory and get needed config
+
+Parts of Maven:
+- XML Schema
+- Parent -used to define parent project
+- Properties - for configuration
+- Dependencies - all dependencies related to the repo
+
+Sequential execution flow
+Validation of project structure
+Compile Source code
+Tests Run
+Package to JAR/WAR
+VerifyIntegrity of package
+Install package to local repo
