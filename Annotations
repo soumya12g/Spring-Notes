@@ -1,0 +1,25 @@
+@RestController/ @Controller(requires @responsebody for http response view)
+Indicates that incoming apis will be handle here
+----------------------------------
+@RequestMapping ( /api) 
+- start of the api class
+--------------------------------------
+@RequestParam (name = 'firstName') String firstname
+- used to bind request parameter to controller parameter - starts after ?
+
+-- framwork automatically performs conversion to the specified type
+-- Primitive types - int, float, double, char, boolean etc
+-- Wrapper class - Integer, Character, Boolean, Float, Double etc
+--CUstom class
+-- Enums
+--------------------------------------------
+@PathVariable (vale = "firstName") string firstname
+GetMapping("/path/{firstName}")
+- used extract from the path URL and to bind request to controller parameter - starts after ?
+
+
+@RequestBody 
+- Bind the body of HTTP request to controller parameter
+
+ResponseENtity - Represents entire HTTP response of a rest controller method
+-header status response body etc.
