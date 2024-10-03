@@ -1,0 +1,11 @@
+Dependency Injection
+@Autowired - says spring to resolve the bean dependency => find bean in the container
+@Lazy
+Circular Dependency
+Field Injection vs constructure Injection which is better
+How to resolve CD -
+  - bring out common code
+  - use @Lazy
+  - use @PostConstruct
+Unsatisfied fileds
+in case of interface autowired use qualifiers or @Primary annotation.
