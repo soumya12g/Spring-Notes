@@ -23,3 +23,32 @@ GetMapping("/path/{firstName}")
 
 ResponseENtity - Represents entire HTTP response of a rest controller method
 -header status response body etc.
+
+@Conditional Property
+  To unclutter too many bean creations
+  simple use case is different DB connections. So based on property we can create connection beans. Rmemebr backfleet
+  also for these beans if you keep condition, in that case add Autowired(Required = false) for avoiding issue
+  Adv 
+    - Toggling of feature
+    - Unclutter application context with unecessary beans 
+    - saving memory aswell
+    - reducing application start up time
+  dis
+    - misconfig can happen
+    - code complexity increases when over used
+    - multiple bean creation control with same config brings confusion
+    -bit complex management
+@Profile
+  This is to decide whether bean creation or property loading etc based on th eprofile specefied for different env
+  It is more like environment seperation as configuration and propertie swill be different
+  ex : urls, any retry  mechanisms, or even thread no difference,  timout values, port num, etc.
+  So based on profile it picks the parameter.
+it will be like application-{profilename}.property
+  we will run the service with profile command (mvn spring-boot::run -Dspring-boot.run.profiles=dev 
+  or we can add, spring.profiles.active property aswell and get the propertyies loaded
+  can create profiles in pom as well and run with simple word 
+  - So using @Profile annotation we can say it to crate the beans as well based on profile(nultiple env)
+
+
+
+  
