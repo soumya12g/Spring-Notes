@@ -1,0 +1,60 @@
+Aspect is a module which handles repeteative and boiler plate code
+Need to add spring boot start aop dependency
+@Aspect
+intercept some tasks before and after some method invokation
+Will have POINT CUT - @Before and @After - Is and expression which tells where ADVICE SHOULD BE APPILED
+
+Types
+  Execution 
+      access modifier
+      Resturen type
+      Path to method
+        * - matches exactly one item
+        .. - matches 0 or more items
+  Within
+    matches all with in class or package or subpackage
+  @within
+    Matched class with annotation
+    ex: @Before(@within(org.stereotype.Service)) - works for all @Service classes
+  @annotation
+     Matches any method annotatied with this
+    ex @GetMapping
+  Args
+     @Before("args(String, int)") -> any method with this parameters will trig this aspect, @Before("args(DTO Object name as well)")
+     @Before("args(annonation name)) - matches with any method with args matching with the a class having this annotation
+ target
+  matches any method on a particular instance of class
+    @Before("taget(EmplyeeUtil)) - if uses EmployeeUtil class instance then thsi will be called
+    can provide interface also
+  
+
+-- we can combine two poincuts as well with && and ||
+  ex: ("execution( * com.lsjdho.sdjhwo.*())" && @within(RestConttoller))
+
+-- Named POINTCUT
+  @Poincut(expression) and then a method without any execution
+
+  Noe @Before(name of the above method)
+    {} works
+
+
+ADVICE : Action taken either before or after or around the method execution
+
+@BEFORE, AFTER -- OKAY
+@AROUND ?
+possible to run before and after
+first statement -  before method
+joint.proceed() -> then executes after method
+
+
+--- How IT OWRKS
+  Startup happens 
+    looks for @Aspect
+    Parse pointcut expression(PointCUT Parser class)
+      - store in effecient datstruture or cache
+    Look @Component, @Service, @Controller etc
+    For each class check s for interception or not based on pointcut expression(uses proxy for it)
+    used jdk dynamic proxy or cgli proxy
+    if class is child of interface - jdk dynamic is used
+    if not -cglib is used - to create subclass of particular class
+
