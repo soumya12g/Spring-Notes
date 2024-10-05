@@ -1,0 +1,19 @@
+Critical Section
+  - In code where shared resources are being accessed and modified
+  -Issue can raise with data consistency in case of consurrent requests
+Use @Transactiona as solution
+  - Helps in acheieving ACID Properties
+  -  
+
+Class level and Method level
+class 
+    - applied to all methods except private method
+method 
+    - handles for method only
+
+
+TRansactional Management in springbooot uses AOP
+    - uses AOP
+    - has poincut expression @within(org.springframework.transaction.annotation.Transactional)
+    - once it matches it run for Around type of advice
+    - 
