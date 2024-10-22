@@ -1,0 +1,23 @@
+Singleton - Default Scope
+    one instance per IOC is created ( when web server application context is started)
+For stateless components like service classes, you only need one instance to perform operations (e.g., UserService or OrderService classes).
+
+
+PROTOTYPE 
+ Each time new object is created
+Lazily initialized
+  : If you have beans that maintain state specific to a user interaction or a process (e.g., processing a form submission where each request needs separate bean instances).
+A ReportGenerator class that generates a detailed report for each user request. Each user might request a different report configuration, 
+so having a new instance for each request is necessary.
+
+RequestScope
+  Each HTTP request new object
+  Lazily initializedS
+  Authenticated user details
+
+
+Session Request
+  new object for each http session
+  A ShoppingCart bean in an online store. Once a user adds an item to the cart,
+it remains available across different pages (requests) during the session, but each user session needs its own cart instance.
+    
