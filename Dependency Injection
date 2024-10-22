@@ -1,3 +1,9 @@
+BEAN LIFECYCLE:
+
+Application Start ------ Ioc container started (Configuration loaded) ----------->
+       Construct Bean --------------> Inject Dependency Into Constructed bean --------------> @PostContruct ---------------> USE BEAN 
+        ----------------------->  @PreDestroy --------------------> Bean Destroyed
+
 Dependency Injection
 @Autowired - says spring to resolve the bean dependency => find bean in the container
 @Lazy
